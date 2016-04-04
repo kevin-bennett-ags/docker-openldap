@@ -1,7 +1,10 @@
 # Use osixia/light-baseimage
 # sources: https://github.com/osixia/docker-light-baseimage
 FROM osixia/light-baseimage:0.2.2
-MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
+
+# Env specific config
+ENV http_proxy http://10.144.76.10:8080
+ENV https_proxy http://10.144.76.10:8080
 
 # Add openldap user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r openldap && useradd -r -g openldap openldap
